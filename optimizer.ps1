@@ -1,9 +1,6 @@
 # CPU Optimizer v2.0
 # by pequato
 
-Add-Type -AssemblyName System.Windows.Forms
-Add-Type -AssemblyName System.Drawing
-
 function Get-ProcessStatus {
     param($name)
     $proc = Get-Process -Name $name -ErrorAction SilentlyContinue
@@ -77,7 +74,6 @@ function Show-Status {
     Write-Host "============================================" -ForegroundColor Cyan
     Write-Host ""
     
-    # Roblox
     $r_status = Get-ProcessStatus "RobloxPlayerBeta"
     if ($r_status -eq "NOT RUNNING") {
         Write-Host "  Roblox (OFF)" -ForegroundColor Red
@@ -91,7 +87,6 @@ function Show-Status {
     
     Write-Host ""
     
-    # CS2
     $c_status = Get-ProcessStatus "cs2"
     if ($c_status -eq "NOT RUNNING") {
         Write-Host "  CS2 (OFF)" -ForegroundColor Red
@@ -128,7 +123,6 @@ function Show-Menu {
     Write-Host ""
 }
 
-# Главный цикл
 do {
     Show-Menu
     $choice = Read-Host "Select (0-3)"
